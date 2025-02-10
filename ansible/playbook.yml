@@ -1,0 +1,53 @@
+- name: Deploying the app
+  hosts: centos
+  become: true
+  tasks:
+    #- name: updating packages
+    #  yum:
+    #    name: "*"
+    #    state: latest
+
+    - name: Ensure prerequisites are installed
+      yum:
+        name:
+          - yum-utils
+          - device-mapper-persistent-data
+          - lvm2
+        state: present
+
+    - name: Add Docker repository
+      command: >
+        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+      args:
+        creates: /etc/yum.repos.d/docker-ce.repo
+
+    - name: installing docker
+      yum: 
+        name: docker-ce
+        state: present
+    
+    - name: start docker
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Adjusting User
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+
+    - name: Pulling the Image
+      docker_image:
+        name: mostafaa8/weather-app
+        source: pull 
+    
+    - name: Running Contianers
+      docker_container: 
+        name: weather-app-container
+        image: mostafaa8/weather-app
+        state: started
+        ports:
+          - "5000:5000"
+        restart_policy: always
