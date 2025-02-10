@@ -11,7 +11,7 @@ pipeline {
                 git branch: 'main' ,url: 'https://github.com/Mustafaa8/Weather-App.git' , credentialsId: 'gittoken'
             }
         }
-        stage('Dockerrizing') {
+        stage('Dockerizing') {
             steps {
                 sh '''
                 docker build -t ${DOCKER_REPO}:${IMAGE_TAG} .
@@ -31,8 +31,8 @@ pipeline {
         stage('Configuring Machines') {
             steps {
                 sh '''
-                    chmod 600 ./machines_key/m01/private_key
-                    chmod 600 ./machines_key/m02/private_key
+                    chmod 400 ./machines_key/m01/private_key
+                    chmod 400 ./machines_key/m02/private_key
                     ansible-playbook -i ansible/inventory ansible/playbook.yml
                 '''
             }
