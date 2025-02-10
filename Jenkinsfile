@@ -20,11 +20,12 @@ pipeline {
         }
         stage('Pushing Iamge') {
             steps {
-                withCredentials([usernamepassword(credentialsId: 'docker-cred',usernameVariable: 'DOCKER_USER',passwordVariable: 'DOCKER_PASS')])
-                sh '''
-                docker login -u ${DOCKER_USER} --password ${DOCKER_PASS}
-                docker push ${DOCKER_REPO}:${IMAGE_TAG}
-                '''
+                withCredentials([usernamePassword(credentialsId: 'docker-cred' , usernameVariable: 'DOCKER_USER' , passwordVariable: 'DOCKER_PASS' )]) {
+                    sh '''
+                    echo "${DOCKER_PASS}"| docker login -u ${DOCKER_USER} --password-stdin
+                    docker push ${DOCKER_REPO}:${IMAGE_TAG}
+                    '''
+                }
             }
         }
     }
