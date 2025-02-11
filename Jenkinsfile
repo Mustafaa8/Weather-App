@@ -31,8 +31,8 @@ pipeline {
         stage('Configuring Machines') {
             steps {
                 sh '''
-                    chmod 400 ./machines_key/m01/private_key
-                    chmod 400 ./machines_key/m02/private_key
+                    chmod 644 ./machines_key/m01/private_key
+                    chmod 644 ./machines_key/m02/private_key
                     ansible-playbook -i ansible/inventory ansible/playbook.yml
                 '''
             }
