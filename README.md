@@ -3,3 +3,5 @@ a web app that has been built using Flask web framework that show the temperatur
 the app has been built and deployed on two VMs using CI/CD jenkins pipeline and these two VMs has using Ansible for Configuration automation to deploy this app as a docker container on them
 
 ## Pipeline Overview
+![Pipeline](https://github.com/user-attachments/assets/82ab17b9-a855-488d-b910-3803f936945f)
+
