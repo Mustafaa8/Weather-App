@@ -21,6 +21,7 @@ before running this pipeline to deploy the app you need
 - Pipeline from Jenkins
 ![Pipeline Stages](https://github.com/user-attachments/assets/afb6c192-99c7-4728-b489-0b4c92390890)
 - Ansible Tasks
+
 ![Ansible Tasks In Jenkins](https://github.com/user-attachments/assets/b7aebd60-8f71-49e3-b67a-f269cae476c1)
 - App From VM 1
 ![VM1](https://github.com/user-attachments/assets/cebe021b-8efc-4fd8-bbf7-b2c2eac8ed62)
