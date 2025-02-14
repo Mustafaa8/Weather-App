@@ -12,10 +12,9 @@ before running this pipeline to deploy the app you need
 ![Pipeline](https://github.com/user-attachments/assets/82ab17b9-a855-488d-b910-3803f936945f)
 
 ## Tech Stack
-- Flask
-- SQLite
-- Jenkins
-- Docker
-- Ansible
-
-##
+- Flask : used to build the web app 
+- Jenkins : building the CI/CD pipeline
+- Docker : Containarization of the app
+- Ansible : Configuration management of the VMs 
+- Vagrant : to create these VMs (infrastructure-as-code)
+## 
