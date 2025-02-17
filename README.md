@@ -19,7 +19,6 @@ Ensure you have the following installed before running the pipeline:
 - Ansible : Configuration management of the VMs 
 - Vagrant : to create these VMs (infrastructure-as-code)
 
-## How To run 
 ## How to Run the Project
 1. Clone the repository:
    ```sh
