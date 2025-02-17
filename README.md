@@ -1,12 +1,14 @@
 # Weather-App
-a web app that has been built using Flask web framework that show the temperature of the city we are searching its name in the GUI , it is using the openweather API to get the data needed 
-the app has been built and deployed on two VMs using CI/CD jenkins pipeline and these two VMs has using Ansible for Configuration automation to deploy this app as a docker container on them
+The application is built and deployed on two virtual machines (VMs) using a CI/CD pipeline with Jenkins. Ansible is used for configuration automation, ensuring the app runs as a Docker container on both VMs.
 
-## Prerequisite
-before running this pipeline to deploy the app you need
-- Jenkins
-- Docker
-- Ansible
+## Prerequisites
+Ensure you have the following installed before running the pipeline:
+
+- **Jenkins**: [Installation Guide](https://www.jenkins.io/doc/book/installing/)
+- **Docker**: [Installation Guide](https://docs.docker.com/get-docker/)
+- **Ansible**: [Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+- **Vagrant**: [Installation Guide](https://developer.hashicorp.com/vagrant/docs/installation)
+
 
 ## Pipeline Overview
 ![Pipeline(1)](https://github.com/user-attachments/assets/2b6001f5-5644-4492-a2b7-81a0bfe9debc)
@@ -16,6 +18,21 @@ before running this pipeline to deploy the app you need
 - Docker : Containarization of the app
 - Ansible : Configuration management of the VMs 
 - Vagrant : to create these VMs (infrastructure-as-code)
+
+## How To run 
+## How to Run the Project
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/weather-app.git
+   cd weather-app
+   ```
+2. Set up the virtual machines using Vagrant
+   ```sh
+   vagrant up
+   ```
+3. update inventory to include the machine IPs and paths of the private keys
+4. run the pipeline using jenkins server
+5. access the app from `http://<VM_IP>:5000`
 
 ## Screenshots
 - Pipeline from Jenkins
@@ -33,5 +50,8 @@ before running this pipeline to deploy the app you need
 - Slack Notifications After Pipeline is done
 
 ![Slack](https://github.com/user-attachments/assets/409d5dfa-745b-4c61-8788-7fec8621f29d)
+
+## License
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 
